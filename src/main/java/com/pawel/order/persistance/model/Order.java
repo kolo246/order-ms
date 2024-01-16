@@ -9,26 +9,30 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.UUID;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@Setter
 @Getter
+@Setter
 @Entity(name = "ORDERS")
 public class Order {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID orderId;
 
-    @Column(name = "PURCHASER_ID")
-    private UUID purchaserId;
+    @Column(name = "CUSTOMER_ID")
+    private UUID customerId;
 
-    @Column(name = "ORDER_TIMESTAMP")
-    private Timestamp orderTimestamp;
+    @Column(name = "TOTAL_AMOUNT")
+    private BigDecimal totalAmount;
 
-    @Column(name = "CART_ID")
-    private Cart cartId;
+    @Column(name = "ORDER_DATE")
+    private Date orderDate;
+
+    // Getters and Setters
 }
